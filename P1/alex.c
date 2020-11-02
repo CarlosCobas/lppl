@@ -371,8 +371,8 @@ static void yynoreturn yy_fatal_error ( const char* msg  );
 	(yy_hold_char) = *yy_cp; \
 	*yy_cp = '\0'; \
 	(yy_c_buf_p) = yy_cp;
-#define YY_NUM_RULES 38
-#define YY_END_OF_BUFFER 39
+#define YY_NUM_RULES 39
+#define YY_END_OF_BUFFER 40
 /* This struct is not used in this scanner,
    but its presence is necessary. */
 struct yy_trans_info
@@ -382,14 +382,14 @@ struct yy_trans_info
 	};
 static const flex_int16_t yy_accept[80] =
     {   0,
-        0,    0,   39,   37,    1,    1,    1,   34,   37,   25,
-       26,   23,   21,   22,   24,   35,   31,   18,   37,   17,
-       36,   27,   28,   36,   36,   36,   36,   36,   36,   36,
-       29,   36,   30,    1,    1,   36,   16,   13,   32,   33,
-        2,    0,   35,   20,   15,   19,   36,   36,   36,   36,
-        8,   36,   36,   36,   36,   14,    2,   35,   36,   36,
-       36,   10,    3,   36,   36,   36,   36,    4,    9,   36,
-       36,    6,   36,   11,   12,    7,   36,    5,    0
+        0,    0,   40,   38,    1,    1,    1,   35,   38,   26,
+       27,   23,   21,   22,   24,   36,   32,   18,   25,   17,
+       37,   28,   29,   37,   37,   37,   37,   37,   37,   37,
+       30,   37,   31,    1,    1,   37,   16,   13,   33,   34,
+        2,    0,   36,   20,   15,   19,   37,   37,   37,   37,
+        8,   37,   37,   37,   37,   14,    2,   36,   37,   37,
+       37,   10,    3,   37,   37,   37,   37,    4,    9,   37,
+       37,    6,   37,   11,   12,    7,   37,    5,    0
     } ;
 
 static const YY_CHAR yy_ec[256] =
@@ -515,10 +515,11 @@ static const flex_int16_t yy_chk[221] =
     } ;
 
 /* Table of booleans, true if rule could match eol. */
-static const flex_int32_t yy_rule_can_match_eol[39] =
+static const flex_int32_t yy_rule_can_match_eol[40] =
     {   0,
 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,     };
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+        };
 
 static yy_state_type yy_last_accepting_state;
 static char *yy_last_accepting_cpos;
@@ -541,9 +542,9 @@ char *yytext;
     #include "header.h"
 
     #define retornar(x) {if (verbosidad) ECHO;}
-#line 545 "alex.c"
+#line 546 "alex.c"
 #define YY_NO_INPUT 1
-#line 547 "alex.c"
+#line 548 "alex.c"
 
 #define INITIAL 0
 
@@ -761,7 +762,7 @@ YY_DECL
 #line 21 "src/alex.l"
 
 
-#line 765 "alex.c"
+#line 766 "alex.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -951,75 +952,80 @@ YY_RULE_SETUP
 	YY_BREAK
 case 25:
 YY_RULE_SETUP
-#line 51 "src/alex.l"
-{ retornar (PAROPEN_) ; }
+#line 50 "src/alex.l"
+{ retornar (OPTASIG_) ; }
 	YY_BREAK
 case 26:
 YY_RULE_SETUP
 #line 52 "src/alex.l"
-{ retornar (PARCLOSE_) ; }
+{ retornar (PAROPEN_) ; }
 	YY_BREAK
 case 27:
 YY_RULE_SETUP
 #line 53 "src/alex.l"
-{ retornar (STRBRAKOPEN_) ; }
+{ retornar (PARCLOSE_) ; }
 	YY_BREAK
 case 28:
 YY_RULE_SETUP
 #line 54 "src/alex.l"
-{ retornar (STRBRAKCLOSE_) ; }
+{ retornar (STRBRAKOPEN_) ; }
 	YY_BREAK
 case 29:
 YY_RULE_SETUP
 #line 55 "src/alex.l"
-{ retornar (CRLBRAKOPEN_) ; } 
+{ retornar (STRBRAKCLOSE_) ; }
 	YY_BREAK
 case 30:
 YY_RULE_SETUP
 #line 56 "src/alex.l"
-{ retornar (CRLBRAKCLOSE_) ; }
+{ retornar (CRLBRAKOPEN_) ; } 
 	YY_BREAK
 case 31:
 YY_RULE_SETUP
 #line 57 "src/alex.l"
-{ retornar (SEMICOLON_); }
+{ retornar (CRLBRAKCLOSE_) ; }
 	YY_BREAK
 case 32:
 YY_RULE_SETUP
-#line 59 "src/alex.l"
-{ retornar (OPTINC_) ; }
+#line 58 "src/alex.l"
+{ retornar (SEMICOLON_); }
 	YY_BREAK
 case 33:
 YY_RULE_SETUP
 #line 60 "src/alex.l"
-{ retornar (OPTDECR_) ; }
+{ retornar (OPTINC_) ; }
 	YY_BREAK
 case 34:
 YY_RULE_SETUP
 #line 61 "src/alex.l"
-{ retornar (OPNOT_);}
+{ retornar (OPTDECR_) ; }
 	YY_BREAK
 case 35:
 YY_RULE_SETUP
-#line 64 "src/alex.l"
-{ retornar(CTE_); }
+#line 62 "src/alex.l"
+{ retornar (OPNOT_);}
 	YY_BREAK
 case 36:
 YY_RULE_SETUP
 #line 65 "src/alex.l"
-{ retornar(ID_); }
+{ retornar(CTE_); }
 	YY_BREAK
 case 37:
 YY_RULE_SETUP
-#line 67 "src/alex.l"
-{ printf("Error [%d]: %s\n", yylineno, yytext); }
+#line 66 "src/alex.l"
+{ retornar(ID_); }
 	YY_BREAK
 case 38:
 YY_RULE_SETUP
-#line 69 "src/alex.l"
+#line 68 "src/alex.l"
+{ printf("Error [%d]: %s\n", yylineno, yytext); }
+	YY_BREAK
+case 39:
+YY_RULE_SETUP
+#line 70 "src/alex.l"
 ECHO;
 	YY_BREAK
-#line 1023 "alex.c"
+#line 1029 "alex.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1995,7 +2001,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 69 "src/alex.l"
+#line 70 "src/alex.l"
 
 
 int verbosidad = FALSE;

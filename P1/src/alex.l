@@ -47,6 +47,7 @@ identificador {letra}(_|{letra}|{digito})*
 "-" { retornar (OPTSUB_) ; }
 "*" { retornar (OPTMULT_) ; }
 "/" { retornar (OPTDIV_) ; }
+"=" { retornar (OPTASIG_) ; }
 
 "(" { retornar (PAROPEN_) ; }
 ")" { retornar (PARCLOSE_) ; }
