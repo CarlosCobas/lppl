@@ -12,20 +12,59 @@
 %option yylineno
 
 delimitador [ \t\n]+
+comentario \/\/.*
+letra [a-z | A-Z]
 digito [0-9]
-entero {digito}+
+constante {digito}+(\.{digito}+)?
+identificador {letra}(_|{letra}|{digito})*
 
 %%
 
 {delimitador} {if (verbosidad) ECHO ; }
-"+" { retornar (MAS_) ; }
-"-" { retornar (MENOS_) ; }
-"*" { retornar (POR_) ; }
-"/" { retornar (DIV_) ; }
-"(" { retornar (OPAR_) ; }
-")" { retornar (DIV_) ; }
-{entero} { retornar (CTE_) ; }
-. { yyerror("Caracter desconocido") ;}
+{comentario} {if (verbosidad) ECHO ; }
+
+"int" { retornar (INT_); }
+"bool" { retornar (BOOL_); }
+"return" { retornar (RETRUN_); }
+"read" { retornar (READ_); }
+"print" { retornar (PRINT_); }
+"if" { retornar (IF_); }
+"else" { retornar (ELSE_); }
+"for" { retornar (FOR_); }
+"true" { retornar (TRUE_); }
+"false" { retornar (FALSE_); }
+
+"&&" { retornar (OPTAND_); }
+"||" { retornar (OPTOR_); }
+"==" { retornar (OPTEQ_) ; } 
+"!=" { retornar (OPTNEQ_) ; }
+">"  { retornar (OPTGRT_) ; }
+"<"  { retornar (OPTLSR_) ; }
+">=" { retornar (OPTGRTEQ_) ; }
+"<=" { retornar (OPTLSREQ_) ; }
+
+"+" { retornar (OPTADD_) ; }
+"-" { retornar (OPTSUB_) ; }
+"*" { retornar (OPTMULT_) ; }
+"/" { retornar (OPTDIV_) ; }
+
+"(" { retornar (PAROPEN_) ; }
+")" { retornar (PARCLOSE_) ; }
+"[" { retornar (STRBRAKOPEN_) ; }
+"]" { retornar (STRBRAKCLOSE_) ; }
+"{" { retornar (CRLBRAKOPEN_) ; } 
+"}" { retornar (CRLBRAKCLOSE_) ; }
+";" { retornar (SEMICOLON_); }
+
+"++" { retornar (OPTINC_) ; }
+"--" { retornar (OPTDECR_) ; }
+"!" { retornar (OPNOT_);}
+
+
+{constante} { retornar(CTE_); }
+{identificador} { retornar(ID_); }
+
+. { printf("Error [%d]: %s\n", yylineno, yytext); }
 
 %%
 
